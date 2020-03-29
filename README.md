@@ -1,4 +1,4 @@
-# This pipeline used to call variants
+# This pipeline used to call variants, no biological duplication.
 # 1. Command-line argument is work_dir
 
 1. work_dir is path/, like /ruizhi/wgs_analysis
