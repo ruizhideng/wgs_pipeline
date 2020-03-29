@@ -1,9 +1,9 @@
 # This pipeline used to call variants
 # 1. Command-line argument is work_dir
 
-1. work_dir is path/, like /your_path/wgs_analysis
+1. work_dir is path/, like /ruizhi/wgs_analysis
 
-2. your fasta files are stored at work_dir/fasta_files
+2. your fasta files are stored at work_dir/fasta_file, like /ruizhi/wgs_analysis/fasta_file
 
 3. GATK bundle is stored at /work_dir/resources/gatk/bundle
 
@@ -11,7 +11,10 @@
 
 1. Please USING conda to intall softwares:
 
-   trim_galore, bwa, samtools, gatk/4.0
+   conda install trim_galore
+   conda install bwa
+   conda install samtools
+   conda install gatk/4.0
 
 2. Please download human reference genome hg38.
 
@@ -34,6 +37,12 @@
    ./preparation.sh /work_dir/
    
 2. Then, qc and mapping, get bam files
-   ./
+
+   ./fastq_to_bam.sh /work_dir/
+
+3. Last, call variant
+   
+   ./GATK_variant_call.sh /work_dir/
+   
 
 
