@@ -27,6 +27,13 @@
 
    password:
    
-# 3. Please first run preparation.sh   
+# 3. RUN script
+
+1. Firstly, run preparation.sh
+
+   ./preparation.sh /work_dir/
+   
+2. Then, qc and mapping, get bam files
+   ./
 
 
