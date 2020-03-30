@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # my work_dir=/home/ruizhi/data/wgs_pipeline
-# fastq raw data is stored at ${work_dir}/test_data
+# fastq raw data is stored at ${work_dir}/fasta_file
 work_dir=$1
 reference=/home/ruizhi/data/wgs_pipeline/reference/genome
 GATK_bundle=/home/ruizhi/data/wgs_pipeline/resources/gatk/bundle/hg38
