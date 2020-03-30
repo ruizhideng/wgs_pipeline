@@ -12,8 +12,11 @@
 1. Please USING conda to intall softwares:
 
    conda install trim_galore
+   
    conda install bwa
-   conda install samtools
+   
+   conda install samtools   
+ 
    conda install gatk/4.0
 
 2. Please download human reference genome hg38.
