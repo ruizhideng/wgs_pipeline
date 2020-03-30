@@ -64,7 +64,7 @@
 
    password:
    
-# 3. RUN script
+# 3. After installed sofwares and download resources, you can RUN script
 
 1. Firstly, run preparation.sh
 
