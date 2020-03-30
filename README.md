@@ -4,7 +4,7 @@
 
 1. Parameter explanation
 
-   work_dir=$1             ($1 that means your command-line argument, my work_dir is: /home/ruizhi/data/wgs_pipeline/)
+   work_dir=$1             ($1 that means your command-line argument, my work_dir is: /home/ruizhi/data/wgs_pipeline)
 
    reference=/home/ruizhi/data/wgs_pipeline/reference/genome                     (hg38 is stored here)
 
@@ -68,28 +68,28 @@
 
 1. Firstly, run preparation.sh
 
-   ./preparation.sh /work_dir/
+   ./preparation.sh /work_dir
    
    mine is:
    
-   ./preparation.sh /home/ruizhi/data/wgs_pipeline/
+   ./preparation.sh /home/ruizhi/data/wgs_pipeline
    
    
 2. Then, qc and mapping, get bam files
 
-   ./fastq_to_bam.sh /work_dir/
+   ./fastq_to_bam.sh /work_dir
    
     mine is:
     
-   ./fastq_to_bam.sh /home/ruizhi/data/wgs_pipeline/
+   ./fastq_to_bam.sh /home/ruizhi/data/wgs_pipeline
 
 3. Last, call variant
    
-   ./GATK_variant_call.sh /work_dir/
+   ./GATK_variant_call.sh /work_dir
    
    mine is:
    
-   ./fastq_to_bam.sh /home/ruizhi/data/wgs_pipeline/
+   ./fastq_to_bam.sh /home/ruizhi/data/wgs_pipeline
 
 # 4. The result of high-quality VCFs are stored at ${work_dir}/result/gatk/VCF
 
