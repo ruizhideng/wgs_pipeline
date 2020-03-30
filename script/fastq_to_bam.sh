@@ -1,6 +1,6 @@
 # command-line arguments, my work_dir = /home/ruizhi/data/wgs_pipeline/
 # fastq raw data is stored at ${work_dir}/fasta_file
-# assume your fastq filename format is: SAMPLE-ID_*.1.fq.gz
+# assume your fastq filename format is: SAMPLE-ID_*.1.fq.gz   SAMPLE-ID_*.2.fq.gz
 work_dir=$1
 
 #reference
@@ -50,8 +50,8 @@ cd ${work_dir}/result/bwa
 ls ${work_dir}/result/cleanfq/*val_1.fq.gz > ./1;cat 1
 ls ${work_dir}/result/cleanfq/*val_2.fq.gz > ./2;cat 2
 paste 1 2 > config && rm 1 2
-cat ${work_dir}/result/bwa/config | while read id; do 
-    arr=(${id}); fq1=${arr[0]}; fq2=${arr[1]}; tmp=`basename ${arr[0]}`;sample=`echo ${tmp%%_*}`; bwa mem -t 2 -R "@RG\tID:$sample\tSM:$sample\tLB:WGS\tPL:Illumina" $reference $fq1 $fq2 | samtools view -Sb - > $sample.bam
+cat ${work_dir}/result/bwa/config | while read id; do
+    arr=(${id}); fq1=${arr[0]}; fq2=${arr[1]}; tmp=`basename ${arr[0]}`; sample=`echo ${tmp%%_*}`; bwa mem -t 4 -R "@RG\tID:$sample\tSM:$sample\tLB:WGS\tPL:Illumina" $reference $fq1 $fq2 | samtools view -bS - > $sample.bam
 done
 echo "bwa mapping reads finished at $(date)" && rm config
 
