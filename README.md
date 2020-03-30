@@ -90,6 +90,7 @@
    mine is:
    
    ./fastq_to_bam.sh /home/ruizhi/data/wgs_pipeline/
-   
+
+# 4. The result of high-quality VCFs are stored at ${work_dir}/result/gatk/VCF
 
 
