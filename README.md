@@ -1,4 +1,4 @@
-# This pipeline used to call variants, no biological duplication. Two main parts: generate BAM files, calling variants
+# This pipeline used to call variants, no biological duplication. Two main parts: generating BAM files, calling variants
 # Please strictly follow my steps and samples naming
 # 1. Command-line argument is work_dir
 
