@@ -4,11 +4,11 @@
 
 1. Parameter explanation
 
-   work_dir=$1             # $1 that meas your command-line argument, my work_dir is: /home/ruizhi/data/wgs_pipeline/
+   work_dir=$1             ($1 that means your command-line argument, my work_dir is: /home/ruizhi/data/wgs_pipeline/)
 
-   reference=/home/ruizhi/data/wgs_pipeline/reference/genome                     # hg38 is stored here
+   reference=/home/ruizhi/data/wgs_pipeline/reference/genome                     (hg38 is stored here)
 
-   GATK_bundle=/home/ruizhi/data/wgs_pipeline/resources/gatk/bundle/hg38         # GATK bundle is stored here
+   GATK_bundle=/home/ruizhi/data/wgs_pipeline/resources/gatk/bundle/hg38         (GATK bundle is stored here)
 
 2. your fasta files are stored at ${work_dir}/fasta_file, like /home/ruizhi/data/wgs_pipeline//fasta_file
 
@@ -70,13 +70,26 @@
 
    ./preparation.sh /work_dir/
    
+   mine is:
+   
+   ./preparation.sh /home/ruizhi/data/wgs_pipeline/
+   
+   
 2. Then, qc and mapping, get bam files
 
    ./fastq_to_bam.sh /work_dir/
+   
+    mine is:
+    
+   ./fastq_to_bam.sh /home/ruizhi/data/wgs_pipeline/
 
 3. Last, call variant
    
    ./GATK_variant_call.sh /work_dir/
+   
+   mine is:
+   
+   ./fastq_to_bam.sh /home/ruizhi/data/wgs_pipeline/
    
 
 
