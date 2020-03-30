@@ -2,11 +2,13 @@
 # Please strictly follow my steps and samples naming
 # 1. Command-line argument is work_dir
 
-1. work_dir=$1  # $1 that meas your command-line argument, my work_dir is: /home/ruizhi/data/wgs_pipeline/
+1. 
 
-   reference=/home/ruizhi/data/wgs_pipeline/reference/genome # hg38 is stored here
+   work_dir=$1                    # $1 that meas your command-line argument, my work_dir is: /home/ruizhi/data/wgs_pipeline/
 
-   GATK_bundle=/home/ruizhi/data/wgs_pipeline/resources/gatk/bundle/hg38 # GATK bundle is stored here
+   reference=/home/ruizhi/data/wgs_pipeline/reference/genome                             # hg38 is stored here
+
+   GATK_bundle=/home/ruizhi/data/wgs_pipeline/resources/gatk/bundle/hg38                 # GATK bundle is stored here
 
 2. your fasta files are stored at ${work_dir}/fasta_file, like /home/ruizhi/data/wgs_pipeline//fasta_file
 
