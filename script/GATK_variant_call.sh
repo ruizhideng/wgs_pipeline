@@ -13,6 +13,7 @@ cd ${work_dir}/result/bwa
 ls *.sorted.bam| while read id; do
     gatk MarkDuplicates \
         -I $id \
+        --REMOVE_DUPLICATES=true \
         -M ${work_dir}/result/gatk/`basename $id .sorted.bam`.markup_metrics.txt \
         -O ${work_dir}/result/gatk/`basename $id .sorted.bam`.sorted.markdup.bam 
 done     
