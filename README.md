@@ -47,7 +47,7 @@
    
    conda install samtools
  
-   conda install gatk/4.1.2.0 (if you can't conda gatk/4.1.2.0, please intall by source, and add to enciroment varible)
+   conda install gatk/4.1.2.0 (if you can't conda gatk/4.1.2.0, please intall by source, and add to enviroment varible)
 
 2. Please download human reference genome hg38 to reference folder, like /home/ruizhi/data/wgs_pipeline/reference/genome
 
