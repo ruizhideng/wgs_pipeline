@@ -120,3 +120,4 @@ ls *.HC.snps.VQSR.vcf.gz| while read id; do
 done
 echo "Indel mode: gatk VariantRecalibrator finished at $(date)"
 echo "GATK finished variant call and VCF files are stored at /work_dir/result/gatk/VCF"
+rm -f *plots.R *recal*  *tranches *VQSR* *txt *.sorted.makdup.bam*
