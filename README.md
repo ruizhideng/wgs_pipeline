@@ -1,5 +1,6 @@
 # This pipeline used to call variants, no biological duplication. Two main parts: generating BAM files, calling variants
 # Please strictly follow my steps and samples naming
+# GATK call variant
 # 1. Command-line argument is work_dir
 
 1. Parameter explanation
@@ -44,7 +45,7 @@
    
    conda install bwa
    
-   conda install samtools   
+   conda install samtools
  
    conda install gatk/4.1.2.0 (if you can't conda gatk/4.1.2.0, please intall by source, and add to enciroment varible)
 
@@ -92,5 +93,31 @@
    ./fastq_to_bam.sh /home/ruizhi/data/wgs_pipeline
 
 # 4. The result of high-quality VCFs are stored at ${work_dir}/result/gatk/VCF
+
+# Platypus call variant, assume you already get sorted.bam files by this pipeline
+
+1. Please download Platypus from https://github.com/RahmanTeamDevelopment/Platypus
+
+   install Platypus instruction, before install Platupus, you have to first install Virttualenv and Python (version 2.7.X is currently supported)
+   
+   conda install Virttualenv
+   
+   cd /Platypus
+
+   ./install.sh
+
+   Be careful! when you install platypus, your python will be downgraded to 2.7 version!!!
+
+2. command-line arguments
+
+   work_dir=$1
+
+   platypus=$2
+
+   (my work_dir=/home/ruizhi/data/wgs_pipeline)
+
+   (platypus=$2 This is your package platypus installed location, my platypus=/home/ruizhi/data/biosoft/Platypus-master/env/bin/platypus)
+
+3. bam files are stored at ${work_dir}/result/bwa
 
 
