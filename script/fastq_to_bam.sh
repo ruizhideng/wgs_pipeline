@@ -40,9 +40,14 @@ ls ${work_dir}/fasta_file/*1.fq.gz > ./1;cat 1
 ls ${work_dir}/fasta_file/*2.fq.gz > ./2;cat 2
 paste 1 2 > config && rm 1 2
 cat ${work_dir}/result/cleanfq/config | while read id; do 
-    arr=(${id}); fq1=${arr[0]}; fq2=${arr[1]}; trim_galore -q 25 --phred33 --length 36 -e 0.1 --stringency 3 --paired $fq1 $fq2 -o ${work_dir}/result/cleanfq
+    arr=(${id}); fq1=${arr[0]}; fq2=${arr[1]}; trim_galore -q 20 --phred33 --length 36 -e 0.1 --stringency 3 --paired $fq1 $fq2 -o ${work_dir}/result/cleanfq
 done
 echo "trim_galore cutting adapters finished at $(date)" && rm config
+
+echo "fastqc checking clean data quality started at $(date)" 
+cd ${work_dir}/result/cleanfq
+fastqc ${work_dir}/result/cleanfq/*fq.gz -o ${work_dir}/result/qc
+echo "fastqc checking clean data quality finished at $(date)"
 
 # bwa mem: mapping reads to GRCh38
 echo "bwa mem mapping reads started at $(date)"
