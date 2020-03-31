@@ -51,13 +51,13 @@ ls ${work_dir}/result/cleanfq/*val_1.fq.gz > ./1;cat 1
 ls ${work_dir}/result/cleanfq/*val_2.fq.gz > ./2;cat 2
 paste 1 2 > config && rm 1 2
 cat ${work_dir}/result/bwa/config | while read id; do
-    arr=(${id}); fq1=${arr[0]}; fq2=${arr[1]}; tmp=`basename ${arr[0]}`; sample=`echo ${tmp%%_*}`; bwa mem -t 1 -R "@RG\tID:$sample\tSM:$sample\tLB:WGS\tPL:Illumina" $reference $fq1 $fq2 | samtools view -bS - > $sample.bam
+    arr=(${id}); fq1=${arr[0]}; fq2=${arr[1]}; tmp=`basename ${arr[0]}`; sample=`echo ${tmp%%_*}`; bwa mem -t 4 -R "@RG\tID:$sample\tSM:$sample\tLB:WGS\tPL:Illumina" $reference $fq1 $fq2 | samtools view -bS - > $sample.bam
 done
 echo "bwa mapping reads finished at $(date)" && rm config
 
 # sort bam files
 echo "samtools sort sorting bam files started at $(date)"
-ls *.bam | while read id; do samtools sort -@ 4 -m 90M -O bam -o ${work_dir}/result/bwa/`basename $id .bam`.sorted.bam $id;done
+ls *.bam | while read id; do samtools sort -@ 4 -m 500M -O bam -o ${work_dir}/result/bwa/`basename $id .bam`.sorted.bam $id;done
 echo "samtools sort sorting bam files finished at $(date)"
 
 # build index for bam files
