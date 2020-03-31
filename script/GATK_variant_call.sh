@@ -4,8 +4,8 @@
 work_dir=$1
 
 #reference
-reference=/home/ruizhi/data/wgs_pipeline/reference/genome/hg38.fa
-GATK_bundle=/home/ruizhi/data/wgs_pipeline/resources/gatk/bundle/hg38
+reference=${work_dir}/reference/genome/hg38.fa
+GATK_bundle=${work_dir}/resources/gatk/bundle/hg38
 
 #mark duplicated sequences
 echo "gatk MarkDuplicates marks duplicated sequences started at $(date)"
