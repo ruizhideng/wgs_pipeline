@@ -1,5 +1,3 @@
-#!/usr/bin/bash
-
 # my work_dir=/home/ruizhi/data/wgs_pipeline
 # fastq raw data is stored at ${work_dir}/fasta_file
 work_dir=$1
