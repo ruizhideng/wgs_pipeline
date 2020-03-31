@@ -94,7 +94,7 @@
 
 # 4. The result of high-quality VCFs are stored at ${work_dir}/result/gatk/VCF
 
-# Platypus call variant, assume you already get sorted.bam files by this pipeline
+# Platypus call variant, assume you already get sorted.bam files by fastq_to_bam.sh
 
 1. Please download Platypus from https://github.com/RahmanTeamDevelopment/Platypus
 
@@ -119,5 +119,11 @@
    (platypus=$2 This is your package platypus installed location, my platypus=/home/ruizhi/data/biosoft/Platypus-master/env/bin/platypus)
 
 3. bam files are stored at ${work_dir}/result/bwa
+
+4. RUN script
+   
+   ./platypus.sh /work_dir/ /your_path_to_installed_platypus/
+   
+   like ./platypus.sh /home/ruizhi/data/wgs_pipeline /home/ruizhi/data/biosoft/Platypus-master/env/bin/platypus
 
 
