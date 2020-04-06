@@ -15,9 +15,9 @@ fi
 # cd /Platypus
 # ./install.sh
 ##### Be careful! when you install platypus, your python will be downgraded to 2.7 version!!!
-cd ${work_dir}/result/bwa/
+cd ${work_dir}/result/gatk/
 echo "platypus started at $(date)"
-ls *sorted.bam | while read id; do
-    ${platypus} callVariants --bamFiles=$id --refFile=${platypus_reference} --output=${work_dir}/result/platypus/`basename $id .sorted.bam`.vcf --logFileName=`basename $id .sorted.bam`.platypus_log_file.txt --minPosterior=5
+ls *markdup.bam | while read id; do
+    ${platypus} callVariants --bamFiles=$id --refFile=${platypus_reference} --output=${work_dir}/result/platypus/`basename $id .markdup.bam`.vcf --logFileName=`basename $id .sorted.bam`.platypus_log_file.txt --minPosterior=5
 done
 echo "platypus finished at $(date)"

@@ -65,7 +65,21 @@ echo "samtools sort sorting bam files started at $(date)"
 ls *.bam | while read id; do samtools sort -@ 4 -m 500M -O bam -o ${work_dir}/result/bwa/`basename $id .bam`.sorted.bam $id;done
 echo "samtools sort sorting bam files finished at $(date)"
 
-# build index for bam files
-echo "samtools index building index started at $(date)"
-ls ${work_dir}/result/bwa/*.sorted.bam| while read id; do samtools index $id; done
-echo "samtools index building index finished at $(date)"
+#mark duplicated sequences
+echo "gatk MarkDuplicates marks duplicated sequences started at $(date)"
+cd ${work_dir}/result/bwa
+ls *.sorted.bam| while read id; do
+    gatk MarkDuplicates \
+        -I $id \
+        --REMOVE_DUPLICATES=true \
+        --VALIDATION_STRINGENCY=SILENT \
+        -M ${work_dir}/result/gatk/`basename $id .sorted.bam`.markup_metrics.txt \
+        -O ${work_dir}/result/gatk/`basename $id .sorted.bam`.sorted.markdup.bam 
+done     
+echo "gatk MarkDuplicates marks duplicated sequences finished at $(date)"
+
+# samtools index building markdup.bam index 
+cd ${work_dir}/result/gatk/
+echo "samtools index building markdup.bam index started at $(date)"
+ls *markdup.bam| while read id; do samtools index $id; done
+echo "samtools index building markdup.bam index finished at $(date)"
