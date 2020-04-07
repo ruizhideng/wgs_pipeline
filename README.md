@@ -123,9 +123,9 @@
 
 4. RUN script
    
-   ./platypus.sh /work_dir/ /your_path_to_installed_platypus/
+   ./platypus_variant_call.sh /work_dir/ /your_path_to_installed_platypus/
    
-   like ./platypus.sh /home/ruizhi/data/wgs_pipeline /home/ruizhi/data/biosoft/Platypus-master/env/bin/platypus
+   like ./platypus_variant_call.sh /home/ruizhi/data/wgs_pipeline /home/ruizhi/data/biosoft/Platypus-master/env/bin/platypus
    
 5. result of platypus will be stored at ${work_dir}/result/platypus
 
