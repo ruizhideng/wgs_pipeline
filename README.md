@@ -11,7 +11,7 @@
 
    GATK_bundle=/home/ruizhi/data/wgs_pipeline/resources/gatk/bundle/hg38         (GATK bundle is stored here)
 
-2. your fasta files are stored at ${work_dir}/fasta_file, like /home/ruizhi/data/wgs_pipeline//fasta_file
+2. your fasta files are stored at ${work_dir}/fasta_file, like /home/ruizhi/data/wgs_pipeline/fasta_file
 
    And please put all of your fasta files to ${work_dir}/fasta_file
    
@@ -29,11 +29,11 @@
 
 4. This script just used to analyze non-biological samples. Your fasta files are pair-end sequecing.
 
-   The format of sample names must be: SAMPLE-ID_*.1.fq.gz      SAMPLE-ID_*.2.fq.gz
+   The format of sample names must be: SAMPLE-ID_*.1.fastq.gz      SAMPLE-ID_*.2.fastq.gz
    
-   like KPGP-00246_L001_R1.fq.gz       KPGP-00246_L001_R2.fq.gz
+   like KPGP-00246_L001_R1.fastq.gz       KPGP-00246_L001_R2.fastq.gz
    
-        KPGP-00246_*1.fq.gz             KPGP-00246_*2.fq.gz
+        KPGP-00246_*1.fastq.gz             KPGP-00246_*2.fastq.gz
         
    Please strictly follow my naming rule!!!
 
