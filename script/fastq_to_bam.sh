@@ -1,6 +1,6 @@
 # command-line arguments, my work_dir = /home/ruizhi/data/wgs_pipeline/
 # fastq raw data is stored at ${work_dir}/fasta_file
-# assume your fastq filename format is: SAMPLE-ID_*.1.fq.gz   SAMPLE-ID_*.2.fq.gz
+# assume your fastq filename format is: SAMPLE-ID_*.1.fastq.gz   SAMPLE-ID_*.2.fastq.gz
 work_dir=$1
 
 #reference
