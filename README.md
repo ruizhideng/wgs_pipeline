@@ -1,4 +1,4 @@
-# This pipeline used to call variants, no biological duplication. Two main parts: generating BAM files, calling variants
+# This pipeline used to call variants, no biological duplication. Three main parts: generating BAM files, calling variants and call CNVs.
 # Please strictly follow my steps and samples naming
 # GATK call variant
 # 1. Command-line argument is work_dir
@@ -128,5 +128,11 @@
    like ./platypus_variant_call.sh /home/ruizhi/data/wgs_pipeline /home/ruizhi/data/biosoft/Platypus-master/env/bin/platypus
    
 5. result of platypus will be stored at ${work_dir}/result/platypus
+
+# CNV tools call CNVs
+# Assume you already installed GRIDSS, LUMPY, CNVnator and Manta
+
+1. GRIDSS
+
 
 
