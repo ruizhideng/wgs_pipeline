@@ -130,9 +130,32 @@
 5. result of platypus will be stored at ${work_dir}/result/platypus
 
 # CNV tools call CNVs
-# Assume you already installed GRIDSS, LUMPY, CNVnator and Manta
+# Assume you already installed Manta, GRIDSS, LUMPY, and CNVnator 
 
-1. GRIDSS
+1. Manta
+
+   ./manta.sh /work_dir/ /your_path_to_configManta.py/
+   
+   like ./manta.sh /home/ruizhi/data/wgs_pipeline /home/ruizhi/data/biosoft/manta/manta-1.6.0.centos6_x86_64/bin/configManta.py
+
+2. GRIDSS
+
+   ./gridss.sh /work_dir/ /your_path_to_gridss_directory/
+
+   like ./gridss.sh /home/ruizhi/data/wgs_pipeline /home/ruizhi/data/biosoft/gridss
+
+3. Lumpy
+   
+   ./lumpy.sh /work_dir/ /your_path_to_lumpy_scripts/
+   
+   like ./lumpy.sh /home/ruizhi/data/wgs_pipeline /home/ruizhi/data/biosoft/lumpy-sv/scripts
+   
+ 4. CNVnator
+ 
+    ./cnvnator /work_dir/ /your_path_to_cnvnator/
+    
+    like ./cnvnator /home/ruizhi/data/wgs_pipeline cnvnator
+   
 
 
 
