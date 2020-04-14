@@ -130,7 +130,7 @@
 5. result of platypus will be stored at ${work_dir}/result/platypus
 
 # CNV tools call CNVs
-# Assume you already installed Manta, GRIDSS, LUMPY, and CNVnator 
+# Assume you already installed Manta, GRIDSS, LUMPY, and CNVnator. The input files of CNV analysis are the results of GATK, *sorted.markdup.bam
 
 1. Manta
 
