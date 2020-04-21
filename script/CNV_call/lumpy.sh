@@ -1,4 +1,5 @@
 #lumpy CNV tool
+# requirements: pip install numpy, pip install pysam, conda install gawk
 work_dir=$1
 scripts=$2 # /path/to/scripts, like /home/ruizhi/data/biosoft/lumpy-sv/scripts
            # stored with extractSplitReads_BwaMem, pairend_distro.py 
@@ -37,26 +38,38 @@ ls *.splitters.bam| while read id; do
 done
 echo "lumpy preparation finished at $(date)"
 
-# lumpy CNVs
-echo "lumpy started at $(date)"
-# First, generate empirical insert size statistics on each library in the BAM file
+echo "lumpyexpress started at ${date}"
 cd ${work_dir}/result/gatk
 ls *.sorted.markdup.bam| while read id; do
-    samtools view -r readgroup1 ${id} \
-    | tail -n+100000 \
-    | ${scripts}/pairend_distro.py \
-    -r 101 \
-    -X 4 \
-    -N 10000 \
-    -o ${work_dir}/result/CNV/lumpy/`basename ${id} .sorted.markdup.bam`.lib1.histo
+    lumpyexpress \
+    -B $id \
+    -S ${work_dir}/result/CNV/lumpy/`basename ${id} .sorted.markdup.bam`.splitters.sorted.bam \
+    -D ${work_dir}/result/CNV/lumpy/`basename ${id} .sorted.markdup.bam`.discordants.sorted.bam \
+    -o ${work_dir}/result/CNV/lumpy/VCF/`basename ${id} .sorted.markdup.bam`.vcf
 done
+echo "lumpyexpress finished at ${date}"
+
+### you can also use lumpy traditional way
+# lumpy CNVs
+#echo "lumpy started at $(date)"
+# First, generate empirical insert size statistics on each library in the BAM file
+#cd ${work_dir}/result/gatk
+#ls *.sorted.markdup.bam| while read id; do
+#    samtools view -r readgroup1 ${id} \
+#    | tail -n+100000 \
+#    | ${scripts}/pairend_distro.py \
+#    -r 101 \
+#    -X 4 \
+#    -N 10000 \
+#    -o ${work_dir}/result/CNV/lumpy/`basename ${id} .sorted.markdup.bam`.lib1.histo
+#done
 
 # run lympy with paried-end and split-reads
-cd ${work_dir}/result/CNV/lumpy/
-ls *.discordants.sorted.bam| while read id; do
-    lumpy -mw 4 -tt 0 \
-    -pe id:`basename ${id} .discordants.sorted.bam`,bam_file:${id},histo_file:`basename ${id} .discordants.sorted.bam`.lib1.histo,mean:500,stdev:50,read_length:101,min_non_overlap:101,discordant_z:5,back_distance:10,weight:1,min_mapping_threshold:20 \
-    -sr id:`basename ${id} .discordants.sorted.bam`,bam_file:`basename ${id} .discordants.sorted.bam`.splitters.sorted.bam,back_distance:10,weight:1,min_mapping_threshold:20 \
-    > ${work_dir}/result/CNV/lumpy/VCF/`basename ${id} .discordants.sorted.bam`.vcf
-done
-echo "lumpy finished at $(date)"
+#cd ${work_dir}/result/CNV/lumpy/
+#ls *.discordants.sorted.bam| while read id; do
+#    lumpy -mw 4 -tt 0 \
+#    -pe id:`basename ${id} .discordants.sorted.bam`,bam_file:${id},histo_file:`basename ${id} .discordants.sorted.bam`.lib1.histo,mean:500,stdev:50,read_length:101,min_non_overlap:101,discordant_z:5,back_distance:10,weight:1,min_mapping_threshold:20 \
+#    -sr id:`basename ${id} .discordants.sorted.bam`,bam_file:`basename ${id} .discordants.sorted.bam`.splitters.sorted.bam,back_distance:10,weight:1,min_mapping_threshold:20 \
+#    > ${work_dir}/result/CNV/lumpy/VCF/`basename ${id} .discordants.sorted.bam`.vcf
+#done
+#echo "lumpy finished at $(date)"
